@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProyectoFinal.Models.ProductoFactura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFacturaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProductoNavigation)
+            </th>
+            <th>
+                Nombre del Cliente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFacturaNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProductoNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nombre)
+            </td>
+            <td>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary mx-2"><i class="fa-solid fa-circle-info"></i>Details</a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2"><i class="fa-solid fa-trash"></i>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
